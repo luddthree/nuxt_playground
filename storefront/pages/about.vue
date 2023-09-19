@@ -8,13 +8,13 @@
 </template>
 
 <script setup>
-  const { data } = await useFetch('/api/storefront?name=mario', {
-    method: 'POST',
-    body: {age: 30}
-  })
+  // const { data } = await useFetch('/api/storefront?name=mario', {
+  //   method: 'POST',
+  //   body: {age: 30}
+  // })
 
   // example currency api
-  // const { data } = await useFetch('/api/storefront')
+  const { data } = await useFetch('/api/storefront')
 </script>
 
 <style scoped>
