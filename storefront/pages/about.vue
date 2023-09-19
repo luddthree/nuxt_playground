@@ -12,6 +12,9 @@
     method: 'POST',
     body: {age: 30}
   })
+
+  // example currency api
+  // const { data } = await useFetch('/api/storefront')
 </script>
 
 <style scoped>
