@@ -1,5 +1,11 @@
 <template>
     <div>
+
+
+        <Head>
+            <title>Storefront | {{ product.title }}</title>
+            <meta name="description" :content="product.description" />
+        </Head>
     <ProductDetails :product="product" />
         
         

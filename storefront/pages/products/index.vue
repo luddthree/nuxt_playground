@@ -17,6 +17,16 @@ import ProductCard from '~/components/ProductCard.vue';
 
     // hente produktene
     const { data: products } = await useFetch('https://fakestoreapi.com/products')
+
+    useHead({
+        title: 'storefront - products',
+        meta: [
+            {
+                name: 'description',
+                content: 'storefront products page'
+            }
+        ]
+    })
 </script>
 
 <style scoped>
