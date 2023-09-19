@@ -8,7 +8,7 @@ export default defineEventHandler(async(event) => {
 
 
     // example currency api
-    const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?apikey=cur_live_CQq8ETiivSQF3eCXpiHHdvbSaHX3Nz2KnWEHUq3d`)
+    // const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?apikey=cur_live_CQq8ETiivSQF3eCXpiHHdvbSaHX3Nz2KnWEHUq3d`)
 
 
 
@@ -17,5 +17,5 @@ export default defineEventHandler(async(event) => {
     // }
 
     // example currency api
-    return data
+    // return data
 })

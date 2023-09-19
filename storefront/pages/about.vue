@@ -14,7 +14,7 @@
   // })
 
   // example currency api
-  const { data } = await useFetch('/api/storefront')
+  const { data } = await useFetch('/api/currency/NOK')
 </script>
 
 <style scoped>
