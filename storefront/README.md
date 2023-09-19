@@ -1,4 +1,4 @@
-Basic storefront website using fakestore api.
+# Basic storefront website using fakestore api.
 
 
 # Nuxt 3 Minimal Starter
