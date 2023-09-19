@@ -2,7 +2,7 @@
     <div>
         <header class="shadow-sm bg-white">
             <nav class="conatiner mx-auto p-4 flex justify-between">
-                <NuxtLink to="/" class="font-bold">Nuxt dojo</NuxtLink>
+                <NuxtLink to="/" class="font-bold">Storefront</NuxtLink>
                 <ul class="flex gap-4">
                     <li><NuxtLink to="/">Home</NuxtLink></li>
                     <li><NuxtLink to="/about">About</NuxtLink></li>
