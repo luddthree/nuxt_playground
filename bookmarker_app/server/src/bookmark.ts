@@ -1,16 +1,13 @@
+import { DatabaseConnection, sql } from '@databases/sqlite';
 import {randomUUID} from 'node:crypto';
 import z, { date } from 'zod';
 import {generateIconURL} from './utils'
 
-const bookmarks: Bookmark[] = [];
-
 interface Bookmark {
     id: string;
     url: string;
-    icon:{
-        url: string;
-        version: number;
-    }
+    icon_url: string; 
+    icon_version: number;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -23,23 +20,36 @@ const addOptionsSchema = z.object({
     url: z.string().url(),
 });
 
-export async function list() {
-    return bookmarks;
+export async function list(db: DatabaseConnection) {
+    return db.query(sql`SELECT * FROM bookmarks`);
 }
 
-export async function add(options: AddOptions) {
+export async function add(db: DatabaseConnection, options: AddOptions) {
     const params = addOptionsSchema.parse(options);
 
     const bookmark: Bookmark = {
         id: randomUUID(),
         url: params.url,
-        icon: {
-            url: generateIconURL(params.url),  
-            version: Date.now(),
-        },
+        icon_url: generateIconURL(params.url),  
+        icon_version: Date.now(),
         createdAt: new Date(),
         updatedAt: new Date(),
     };
-    bookmarks.push(bookmark);
+    await db.query(sql`INSERT INTO bookmarks (
+        id,
+        url,
+        icon_url,
+        icon_version,
+        created_at,
+        updated_at
+    ) VALUES (
+        ${bookmark.id},
+        ${bookmark.url},
+        ${bookmark.icon_url},
+        ${bookmark.icon_version},
+        ${bookmark.createdAt},
+        ${bookmark.updatedAt}
+    );`);
+
     return bookmark;
 }   
